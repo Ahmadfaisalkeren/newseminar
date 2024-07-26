@@ -1,0 +1,60 @@
+.export-buttons {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.csv-button {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    background-color: #0cb13e;
+    transition: background-color 300ms, color 300ms;
+}
+
+.csv-button:hover {
+    background-color: #ffffff;
+    border-color: #0cb13e;
+    color: #0cb13e;
+}
+
+.xlsx-button {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    background-color: #068b2e;
+    transition: background-color 300ms, color 300ms;
+}
+
+.xlsx-button:hover {
+    background-color: #ffffff;
+    border-color: #068b2e;
+    color: #068b2e;
+}
+
+.pdf-button {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    background-color: #af0b13;
+    transition: background-color 300ms, color 300ms;
+}
+
+.pdf-button:hover {
+    background-color: #ffffff;
+    border-color: #af0b13;
+    color: #af0b13;
+}
+

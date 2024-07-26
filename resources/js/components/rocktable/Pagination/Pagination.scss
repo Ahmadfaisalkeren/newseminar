@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+
+  .page-item {
+    margin-right: 5px;
+
+    .page-link {
+      padding: 0.3rem 1rem;
+      border: none;
+      border-radius: 0.75rem;
+      transition: background-color 0.3s;
+
+      &.prev-button {
+        background-color: #808080;
+        color: #fff;
+      }
+
+      &.next-button {
+        background-color: #808080;
+        color: #fff;
+      }
+
+      &.current-page {
+        background-color: #808080;
+        color: #fff;
+      }
+    }
+  }
+}

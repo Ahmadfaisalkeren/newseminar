@@ -1,0 +1,54 @@
+.rock-toast {
+    position: fixed;
+    z-index: 50;
+
+    &.rock-toast-top-right {
+      top: 1rem;
+      right: 1rem;
+    }
+
+    &.rock-toast-bottom-right {
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    &.rock-toast-top-left {
+      top: 1rem;
+      left: 1rem;
+    }
+
+    &.rock-toast-bottom-left {
+      bottom: 1rem;
+      left: 1rem;
+    }
+
+    .rock-toast-container {
+      background-color: #fff;
+      color: #4a2fdf;
+      border-radius: 8px;
+      padding: 1rem;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      .rock-toast-animation {
+        height: 0.25rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #4a2fdf;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        animation: countdown 5s linear forwards;
+      }
+    }
+  }
+
+  @keyframes countdown {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
