@@ -49,6 +49,17 @@ class OrderController extends Controller
         ]);
     }
 
+    public function getOrderBySeminarId($seminarId)
+    {
+        $orderBySeminarID = $this->orderService->fetchOrderBySeminarId($seminarId);
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Order Fetched Successfully',
+            'orderBySeminarId' => $orderBySeminarID
+        ]);
+    }
+
     public function createInvoice(Request $request)
     {
         try {

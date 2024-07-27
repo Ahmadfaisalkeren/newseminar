@@ -70,7 +70,6 @@ const AddSeminar = ({ isOpen, onClose, updateSeminarData }) => {
         formData.append("location", location);
         formData.append("price", price);
         formData.append("capacity", capacity);
-        formData.append("capacity_left", capacity);
         formData.append("category_id", category_id);
         formData.append("image", image);
 

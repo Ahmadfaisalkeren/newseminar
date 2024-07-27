@@ -44,6 +44,11 @@ const Seminar = () => {
         setDeleteSeminarModal(true);
     };
 
+    const handleAttendance = (seminar) => {
+        setAttendanceSeminar(seminar);
+        setAttendanceSeminarModal(true);
+    };
+
     const columns = [
         {
             header: "No",
@@ -130,8 +135,8 @@ const Seminar = () => {
                         disabled={item.capacity_left < item.capacity}
                         className={`flex text-xs px-2 py-1 rounded-md ${
                             item.capacity_left < item.capacity
-                                ? "bg-gray-300 border-gray-300 text-gray-600 cursor-not-allowed"
-                                : "bg-white border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
+                                ? "bg-gray-300 border border-gray-600 text-gray-600 cursor-not-allowed"
+                                : "bg-white border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
                         } duration-300 mb-1`}
                     >
                         <FaPencilAlt className="icon" />
@@ -142,15 +147,15 @@ const Seminar = () => {
                         disabled={item.capacity_left < item.capacity}
                         className={`flex text-xs px-2 py-1 rounded-md ${
                             item.capacity_left < item.capacity
-                                ? "bg-gray-300 border-gray-300 text-gray-600 cursor-not-allowed"
-                                : "bg-white border-red-600 text-red-600 hover:text-white hover:bg-red-600 hover:border-red-600"
+                                ? "bg-gray-300 border border-gray-600 text-gray-600 cursor-not-allowed"
+                                : "bg-white border border-red-600 text-red-600 hover:text-white hover:bg-red-600 hover:border-red-600"
                         } duration-300 mb-1`}
                     >
                         <FaTrash className="icon" />
                         <span>Delete</span>
                     </button>
                     <button
-                        onClick={() => setAttendanceSeminarModal(true)}
+                        onClick={() => handleAttendance(item)}
                         className="flex text-xs px-2 py-1 rounded-md bg-white border border-sky-600 text-sky-600 hover:text-white hover:bg-sky-600 hover:border-sky-600 duration-300"
                     >
                         <FaEye className="icon" />
@@ -159,8 +164,7 @@ const Seminar = () => {
                 </div>
             ),
             width: "150px",
-        }
-
+        },
     ];
 
     return (
@@ -215,11 +219,14 @@ const Seminar = () => {
                     updateSeminarData={updateSeminarData}
                 />
             )}
-            <AttendanceSeminar
-                isOpen={attendanceSeminarModal}
-                onClose={() => setAttendanceSeminarModal(false)}
-                seminarData={attendanceSeminar}
-            />
+            {attendanceSeminar && (
+                <AttendanceSeminar
+                    isOpen={attendanceSeminarModal}
+                    onClose={() => setAttendanceSeminarModal(false)}
+                    seminarData={attendanceSeminar}
+                    seminarId = {attendanceSeminar.id}
+                />
+            )}
         </div>
     );
 };

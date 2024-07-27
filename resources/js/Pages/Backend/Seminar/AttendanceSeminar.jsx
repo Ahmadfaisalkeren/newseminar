@@ -4,21 +4,25 @@ import TableContainer from "../../../components/rocktable/TableContainer/TableCo
 import axios from "axios";
 import { FaCheck } from "react-icons/fa";
 
-const AttendanceSeminar = ({ isOpen, onClose, seminarData }) => {
-    const [allOrders, setAllOrders] = useState([]);
+const AttendanceSeminar = ({ isOpen, onClose, seminarData, seminarId }) => {
+    const [orderBySeminarId, setOrderBySeminarId] = useState([]);
 
     useEffect(() => {
-        const fetchTransactions = async () => {
-            try {
-                const response = await axios.get(`/api/orders`);
-                setAllOrders(response.data.allOrders);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+        if (seminarId) {
+            fetchTransactions();
+        }
+    }, [seminarId]);
 
-        fetchTransactions();
-    }, []);
+    const fetchTransactions = async () => {
+        try {
+            const response = await axios.get(
+                `/api/orderBySeminar/${seminarId}`
+            );
+            setOrderBySeminarId(response.data.orderBySeminarId);
+        } catch (error) {
+            console.log("Error fetching transactions:", error);
+        }
+    };
 
     const columns = [
         {
@@ -77,7 +81,7 @@ const AttendanceSeminar = ({ isOpen, onClose, seminarData }) => {
                     <TableContainer
                         exportPDF={true}
                         columns={columns}
-                        data={allOrders}
+                        data={orderBySeminarId}
                     />
                 </div>
             </RockModal>

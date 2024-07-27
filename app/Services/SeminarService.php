@@ -32,6 +32,8 @@ class SeminarService
             $seminarData['image'] = $this->storeImage($seminarData['image']);
         }
 
+        $seminarData['capacity_left'] = $seminarData['capacity'];
+
         Seminar::create($seminarData);
     }
 

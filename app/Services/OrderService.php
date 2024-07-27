@@ -39,6 +39,11 @@ class OrderService
         return Order::with('seminar')->with('user')->where('id', $orderId)->first();
     }
 
+    public function fetchOrderBySeminarId($seminarId)
+    {
+        return Order::with('seminar')->with('user')->where('status', '=', 'success')->where('seminar_id', $seminarId)->get();
+    }
+
     public function createInvoice(Request $request)
     {
         $transactionId = 'Order-' . str_pad(random_int(0, 999999999999999), 15, '0', STR_PAD_LEFT);

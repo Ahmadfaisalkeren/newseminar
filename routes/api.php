@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('/orders/{userId}', [OrderController::class, 'index']);
     Route::get('/order/{orderId}', [OrderController::class, 'getOrderByOrderId']);
+    Route::get('/orderBySeminar/{seminarId}', [OrderController::class, 'getOrderBySeminarId']);
     Route::get('/orders', [OrderController::class, 'allOrders']);
     Route::post('/invoice', [OrderController::class, 'createInvoice']);
 
