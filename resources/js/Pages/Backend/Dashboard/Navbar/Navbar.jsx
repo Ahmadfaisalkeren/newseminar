@@ -72,7 +72,7 @@ const Navbar = ({ toggleSidebar }) => {
                     <button onClick={toggleSidebar}>
                         <FaBars size={25} />
                     </button>
-                    <div className="flex">
+                    <div className="flex relative">
                         <div className="relative">
                             <button
                                 onClick={handleBellClick}
@@ -86,7 +86,7 @@ const Navbar = ({ toggleSidebar }) => {
                                 )}
                             </button>
                             {isDropdownOpen && (
-                                <div className="absolute top-7 -left-[235px] w-64 bg-white rounded-lg shadow-lg z-50">
+                                <div className="absolute top-7 right-0 w-64 bg-white rounded-lg shadow-lg z-50">
                                     <div className="p-2">
                                         <p className="text-gray-600 text-base text-center font-semibold">
                                             Notifications
@@ -135,7 +135,7 @@ const Navbar = ({ toggleSidebar }) => {
                                 </div>
                             )}
                         </div>
-                        <div>
+                        <div className="relative">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="mr-2"
@@ -143,7 +143,7 @@ const Navbar = ({ toggleSidebar }) => {
                                 <FaUser size={25} />
                             </button>
                             {isOpen && (
-                                <ul className="text-sm font-medium bg-white rounded-lg shadow-lg p-1 absolute top-[55px] left-[1246px]">
+                                <ul className="text-sm font-medium bg-white rounded-lg shadow-lg p-1 absolute top-[55px] right-0">
                                     <li className="">
                                         <a
                                             href="#"
