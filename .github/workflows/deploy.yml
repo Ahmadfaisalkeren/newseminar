@@ -34,4 +34,4 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
-          rsync -avz --delete dist/ $SSH_USERNAME@$SSH_HOST:/path/to/your/app
+          rsync -avz --delete dist/ $SSH_USERNAME@$SSH_HOST:/var/www/newseminar.byahmad.my.id
