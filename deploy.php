@@ -34,11 +34,11 @@ set('composer_options', '--verbose --prefer-dist --no-progress --no-interaction 
 
 // Hosts
 host('production')
- ->setHostName(env('DEPLOY_HOST'))
- ->set('remote_user', env('DEPLOY_USER'))
- ->set('port', env('DEPLOY_PORT'))
- ->set('branch', env('DEPLOY_BRANCH'))
- ->set('deploy_path', env('DEPLOY_PATH'));
+ ->setHostName(getenv('DEPLOY_HOST'))
+ ->set('remote_user', getenv('DEPLOY_USER'))
+ ->set('port', getenv('DEPLOY_PORT'))
+ ->set('branch', getenv('DEPLOY_BRANCH'))
+ ->set('deploy_path', getenv('DEPLOY_PATH'));
 
 
 // Tasks

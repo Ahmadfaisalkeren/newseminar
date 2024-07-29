@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.9",
         "midtrans/midtrans-php": "^2.5",
         "pusher/pusher-php-server": "^7.2",
+        "vlucas/phpdotenv": "^5.6",
         "xendit/xendit-php": "^5.0"
     },
     "require-dev": {
