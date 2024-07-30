@@ -16,7 +16,6 @@
         "xendit/xendit-php": "^5.0"
     },
     "require-dev": {
-        "deployer/deployer": "^7.4",
         "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",

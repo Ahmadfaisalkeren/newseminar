@@ -224,7 +224,7 @@ const Seminar = () => {
                     isOpen={attendanceSeminarModal}
                     onClose={() => setAttendanceSeminarModal(false)}
                     seminarData={attendanceSeminar}
-                    seminarId = {attendanceSeminar.id}
+                    seminarId={attendanceSeminar.id}
                 />
             )}
         </div>
