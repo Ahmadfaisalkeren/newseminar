@@ -8,7 +8,7 @@ import RockToast from "../../../components/rocktoast/RockToast";
 
 const MyProfile = () => {
     const { id } = useParams();
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(null);
     const [name, setName] = useState("");
     const [changeProfileModal, setChangeProfileModal] = useState(false);
     const [toastMessage, setToastMessage] = useState("");
@@ -16,7 +16,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         if (user) {
-            setName(user.name);
+            setName(user.name || "");
         }
     }, [user]);
 
@@ -69,7 +69,7 @@ const MyProfile = () => {
                         My Profile
                     </p>
                     <img
-                        src={user.image ? user.image : defaultProfile}
+                        src={user?.image ? user.image : defaultProfile}
                         alt="Image not found"
                         className="w-[150px] h-[150px] rounded-full border border-tertiary shadow-md justify-center mx-auto mt-10"
                     />
