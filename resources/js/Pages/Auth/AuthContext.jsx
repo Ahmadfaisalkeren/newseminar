@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RockToast } from "rocktoast";
+import Loader from "../../components/loader/Loader";
 
 const AuthContext = createContext();
 
@@ -9,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [toastMessage, setToastMessage] = useState("");
     const [showToast, setShowToast] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
 
@@ -121,15 +122,16 @@ export const AuthProvider = ({ children }) => {
                     console.error(
                         "User data is undefined or missing in the response"
                     );
-                    logoutUser(false); // Avoid showing toast when logging out due to check failure
+                    logoutUser(false);
                 }
             } catch (error) {
                 console.error("Error Fetching User:", error);
-                logoutUser(false); // Avoid showing toast when logging out due to check failure
+                logoutUser(false);
             }
         } else {
-            logoutUser(false); // Avoid showing toast when logging out due to missing token
+            logoutUser(false);
         }
+        setLoading(false);
     };
 
     const contextData = {
@@ -142,7 +144,13 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={contextData}>
-            {children}
+            {loading ? (
+                <div className="w-full h-screen flex justify-center items-center">
+                    <Loader />
+                </div>
+            ) : (
+                children
+            )}
             {showToast && (
                 <RockToast
                     message={toastMessage}
