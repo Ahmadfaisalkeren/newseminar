@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->bigInteger('user_id');
             $table->bigInteger('seminar_id');
-            $table->enum('status', ['pending', 'success'])->default('pending');
+            $table->enum('status', ['pending', 'success', 'failed'])->default('pending');
             $table->bigInteger('amount');
             $table->string('invoice_url');
             $table->timestamps();

@@ -94,38 +94,4 @@ class OrderController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
-    public function paymentCompletedCallback(Request $request)
-    {
-        try {
-            $this->orderService->handlePaymentCompletedCallback($request);
-
-            return response()->json([
-                'status' => Response::HTTP_OK,
-                'message' => 'Payment completed notification received',
-            ]);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => 'Error',
-                'message' => $th->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    public function paymentExpiredCallback(Request $request)
-    {
-        try {
-            $this->orderService->handlePaymentExpiredCallback($request);
-
-            return response()->json([
-                'status' => Response::HTTP_OK,
-                'message' => 'Payment expired notification received',
-            ]);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => 'Error',
-                'message' => $th->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
-    }
 }
